@@ -22,48 +22,105 @@ const TableLinks = styled.table`
   margin-bottom: 80px;
 `;
 
+const CategoriesLinks = styled.tr`
+  font-size: 16px;
+  height: 40px;
+  vertical-align: top;
+  font-weight: 700;
+`;
+
+const ManyLinks = styled.tr`
+  color: var(--grey-violet);
+  height: 30px;
+
+  & > td > a:hover {
+    color: var(--cyan);
+  }
+`;
+
+const SocialMediaList = styled.ul`
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+
+  & #kid {
+    margin-top: 3px;
+  }
+
+  & > li > a > img:hover {
+    filter: invert(38%) sepia(42%) saturate(739%) hue-rotate(131deg)
+      brightness(97%) contrast(91%);
+  }
+`;
+
 const Footer: NextPage = () => {
   return (
     <Box>
       <TitleBox>
-        <img src="/logo.svg" alt="" />
+        <img src="/logo-white.svg" alt="" />
       </TitleBox>
       <TableLinks>
         <thead>
-          <tr>
+          <CategoriesLinks>
             <th>Features</th>
             <th>Resources</th>
             <th>Company</th>
-          </tr>
+          </CategoriesLinks>
         </thead>
         <tbody>
-          <tr>
-            <td>Link Shortening</td>
-            <td>Blog</td>
-            <td>About</td>
-          </tr>
-          <tr>
-            <td>Branded Links</td>
-            <td>Developers</td>
-            <td>Our Team</td>
-          </tr>
-          <tr>
-            <td>Analytics</td>
-            <td>Support</td>
-            <td>Careers</td>
-          </tr>
-          <tr>
-            <td>Contact</td>
-          </tr>
+          <ManyLinks>
+            <td>
+              <a href="">Link Shortening</a>
+            </td>
+            <td>
+              <a href="">Blog</a>
+            </td>
+            <td>
+              <a href="">About</a>
+            </td>
+          </ManyLinks>
+          <ManyLinks>
+            <td>
+              <a href="">Branded Links</a>
+            </td>
+            <td>
+              <a href="">Developers</a>
+            </td>
+            <td>
+              <a href="">Our Team</a>
+            </td>
+          </ManyLinks>
+          <ManyLinks>
+            <td>
+              <a href="">Analytics</a>
+            </td>
+            <td>
+              <a href="">Support</a>
+            </td>
+            <td>
+              <a href="">Careers</a>
+            </td>
+          </ManyLinks>
+          <ManyLinks>
+            <td></td>
+            <td></td>
+            <td>
+              <a href="">Contact</a>
+            </td>
+          </ManyLinks>
         </tbody>
       </TableLinks>
-      <ul>
+      <SocialMediaList>
         <li>
           <a href="">
             <img src="/icon-facebook.svg" alt="" />
           </a>
         </li>
-        <li>
+        <li id="kid">
           <a href="">
             <img src="/icon-twitter.svg" alt="" />
           </a>
@@ -78,7 +135,7 @@ const Footer: NextPage = () => {
             <img src="/icon-instagram.svg" alt="" />
           </a>
         </li>
-      </ul>
+      </SocialMediaList>
     </Box>
   );
 };
