@@ -20,6 +20,10 @@ const TableLinks = styled.table`
 
   font-size: 15px;
   margin-bottom: 80px;
+
+  @media only screen and (max-width: 820px) {
+    font-size: 12px;
+  }
 `;
 
 const CategoriesLinks = styled.tr`
@@ -46,14 +50,14 @@ const SocialMediaList = styled.ul`
   margin: 0;
   padding: 0;
   gap: 20px;
-
+q
   & #kid {
     margin-top: 3px;
   }
 
   & > li > a > img:hover {
     filter: invert(38%) sepia(42%) saturate(739%) hue-rotate(131deg)
-      brightness(97%) contrast(91%);
+      brightness(97%) contrast(91%);90 
   }
 `;
 

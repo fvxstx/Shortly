@@ -43,6 +43,10 @@ const DifInfos = styled.article<{ margin?: string }>`
   height: 270px;
   padding: 10px 20px;
   border-radius: 8px;
+
+  @media only screen and (max-width: 820px) {
+    height: 340px;
+  }
 `;
 
 const SepareteBlue = styled.hr`
@@ -81,6 +85,10 @@ const TitleInfos = styled.h4`
 
 const PInfos = styled.p`
   margin: 0;
+
+  @media only screen and (max-width: 820px) {
+    font-size: 14px;
+  }
 `;
 
 const Infos: NextPage = () => {

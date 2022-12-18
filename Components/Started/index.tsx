@@ -4,6 +4,7 @@ import { NextPage } from "next";
 const Main = styled.section`
   display: flex;
   justify-content: space-between;
+  position: relative;
 `;
 
 const Texts = styled.div`
@@ -18,11 +19,21 @@ const Title = styled.h2`
   font-size: 65px;
   line-height: 75px;
   margin: 0;
+
+  @media only screen and (max-width: 820px) {
+    font-size: 55px;
+    line-height: 65px;
+  }
 `;
 
 const Paragraph = styled.p`
   margin: 0;
   color: var(--grey-violet);
+
+  @media only screen and (max-width: 820px) {
+    font-size: 16px;
+    width: 400px;
+  }
 `;
 
 const Button = styled.button`
@@ -37,6 +48,12 @@ const Button = styled.button`
   border: none;
   font-weight: bold;
 
+  @media only screen and (max-width: 820px) {
+    height: 40px;
+    width: 130px;
+    font-size: 16px;
+  }
+
   &:hover {
     cursor: pointer;
     opacity: 0.5;
@@ -47,6 +64,16 @@ const Ilustration = styled.img`
   width: 530px;
 
   position: relative;
+
+  @media only screen and (max-width: 1190px) {
+    width: 450px;
+    position: absolute;
+    right: -130px;
+  }
+
+  @media only screen and (max-width: 850px) {
+    width: 400px;
+  }
 `;
 
 const Started: NextPage = () => {

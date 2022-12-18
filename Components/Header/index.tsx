@@ -14,10 +14,9 @@ const Head1 = styled.div`
   gap: 40px;
 `;
 
-const Title = styled.h1``;
-
 const NavPag = styled.nav`
   margin-bottom: 15px;
+  width: 280px;
 `;
 
 const Pags = styled.ul`
@@ -40,6 +39,7 @@ const PagsLi = styled.li`
 `;
 
 const Buttons = styled.div`
+  position: relative;
   margin-bottom: 15px;
   display: flex;
   gap: 10px;
@@ -69,9 +69,9 @@ const Pag: NextPage = () => {
   return (
     <HeaderDiv>
       <Head1>
-        <Title>
+        <h1>
           <img src="/logo.svg" alt="" />
-        </Title>
+        </h1>
 
         <NavPag>
           <Pags>

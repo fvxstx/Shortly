@@ -15,9 +15,13 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
         font-size: 18px;
+        max-width: 100%;
+        overflow-x: hidden;
         font-family: "Poppins", sans-serif;
         -ms-overflow-style: none;  
         scrollbar-width: none;
+
+        
     }
 
     body::-webkit-scrollbar {
@@ -31,6 +35,10 @@ const GlobalStyle = createGlobalStyle`
 
     header,main,footer{
         padding: 0 90px;
+
+        @media only screen and (max-width: 850px) {
+            padding: 0 50px;
+        }
     }
 
     * {

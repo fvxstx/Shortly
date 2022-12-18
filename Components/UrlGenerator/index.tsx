@@ -8,7 +8,7 @@ const BoxSection = styled.section`
   justify-content: center;
   text-align: center;
 
-  margin-top: 50px;
+  margin-top: 100px;
 `;
 
 const BoxInput = styled.div`
