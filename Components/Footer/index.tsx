@@ -7,38 +7,53 @@ const Box = styled.footer`
   color: #ffffff;
   display: flex;
   justify-content: space-between;
+  overflow-x: auto;
   background: var(--very-dark-violet);
+
+  @media only screen and (max-width: 430px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const TitleBox = styled.h4`
   margin: 0;
 `;
 
-const TableLinks = styled.table`
-  text-align: left;
-  width: 50%;
+const BoxLinks = styled.ul`
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 50px;
+  gap: 20px;
 
-  font-size: 15px;
-  margin-bottom: 80px;
-
-  @media only screen and (max-width: 820px) {
-    font-size: 12px;
+  @media only screen and (max-width: 430px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 `;
 
-const CategoriesLinks = styled.tr`
-  font-size: 16px;
-  height: 40px;
-  vertical-align: top;
-  font-weight: 700;
+const ColumnLinks = styled.li`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  @media only screen and (max-width: 430px) {
+    & > h5 {
+      margin-bottom: 8px;
+    }
+  }
 `;
 
-const ManyLinks = styled.tr`
-  color: var(--grey-violet);
-  height: 30px;
+const ALink = styled.a`
+  font-size: 14px;
+  opacity: 0.5;
 
-  & > td > a:hover {
-    color: var(--cyan);
+  &:hover {
+    opacity: 1;
   }
 `;
 
@@ -50,14 +65,13 @@ const SocialMediaList = styled.ul`
   margin: 0;
   padding: 0;
   gap: 20px;
-q
-  & #kid {
+  q & #kid {
     margin-top: 3px;
   }
 
   & > li > a > img:hover {
     filter: invert(38%) sepia(42%) saturate(739%) hue-rotate(131deg)
-      brightness(97%) contrast(91%);90 
+      brightness(97%) contrast(91%);
   }
 `;
 
@@ -67,57 +81,28 @@ const Footer: NextPage = () => {
       <TitleBox>
         <img src="/logo-white.svg" alt="" />
       </TitleBox>
-      <TableLinks>
-        <thead>
-          <CategoriesLinks>
-            <th>Features</th>
-            <th>Resources</th>
-            <th>Company</th>
-          </CategoriesLinks>
-        </thead>
-        <tbody>
-          <ManyLinks>
-            <td>
-              <a href="">Link Shortening</a>
-            </td>
-            <td>
-              <a href="">Blog</a>
-            </td>
-            <td>
-              <a href="">About</a>
-            </td>
-          </ManyLinks>
-          <ManyLinks>
-            <td>
-              <a href="">Branded Links</a>
-            </td>
-            <td>
-              <a href="">Developers</a>
-            </td>
-            <td>
-              <a href="">Our Team</a>
-            </td>
-          </ManyLinks>
-          <ManyLinks>
-            <td>
-              <a href="">Analytics</a>
-            </td>
-            <td>
-              <a href="">Support</a>
-            </td>
-            <td>
-              <a href="">Careers</a>
-            </td>
-          </ManyLinks>
-          <ManyLinks>
-            <td></td>
-            <td></td>
-            <td>
-              <a href="">Contact</a>
-            </td>
-          </ManyLinks>
-        </tbody>
-      </TableLinks>
+      <BoxLinks>
+        <ColumnLinks>
+          <h5>Features</h5>
+          <ALink href="">Link Shortening</ALink>
+          <ALink href="">Blog</ALink>
+          <ALink href="">About</ALink>
+        </ColumnLinks>
+        <ColumnLinks>
+          <h5>Resources</h5>
+          <ALink href="">Branded Links</ALink>
+          <ALink href="">Developers</ALink>
+          <ALink href="">Our Team</ALink>
+        </ColumnLinks>
+        <ColumnLinks>
+          <h5>Company</h5>
+          <ALink href="">Analytics</ALink>
+          <ALink href="">Support</ALink>
+          <ALink href="">Careers</ALink>
+          <ALink href="">Contact</ALink>
+        </ColumnLinks>
+      </BoxLinks>
+
       <SocialMediaList>
         <li>
           <a href="">

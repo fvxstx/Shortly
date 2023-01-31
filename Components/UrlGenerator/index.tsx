@@ -8,7 +8,7 @@ const BoxSection = styled.section`
   justify-content: center;
   text-align: center;
 
-  margin-top: 100px;
+  margin-top: 120px;
 `;
 
 const BoxInput = styled.div`
@@ -20,6 +20,11 @@ const BoxInput = styled.div`
   padding: 35px;
   gap: 18px;
   border-radius: 8px;
+
+  @media only screen and (max-width: 430px) {
+    flex-direction: column;
+    padding: 20px;
+  }
 `;
 
 const TextInput = styled.input`
@@ -48,6 +53,11 @@ const ButtonUrl = styled.button`
     cursor: pointer;
     background-color: #6ae4e4;
   }
+
+  @media only screen and (max-width: 430px) {
+    height: 40px;
+    width: 100%;
+  }
 `;
 
 const SiteList = styled.ul`
@@ -67,6 +77,16 @@ const SiteItem = styled.li`
 
   border-radius: 4px;
   padding: 0 18px;
+
+  @media only screen and (max-width: 430px) {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+
+    font-size: 16px;
+    padding: 0 18px 15px;
+    border-radius: 8px;
+  }
 `;
 
 const SiteAndCopy = styled.div`
@@ -74,6 +94,11 @@ const SiteAndCopy = styled.div`
   color: var(--cyan);
 
   gap: 16px;
+
+  @media only screen and (max-width: 430px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 const CopyButton = styled(ButtonUrl)`
@@ -81,6 +106,12 @@ const CopyButton = styled(ButtonUrl)`
   width: 75px;
   height: 30px;
   border-radius: 4px;
+
+  @media only screen and (max-width: 430px) {
+    width: 100%;
+    height: 37px;
+    font-size: 14px;
+  }
 `;
 
 const UrlGenerator: NextPage = () => {

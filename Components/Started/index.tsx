@@ -5,12 +5,18 @@ const Main = styled.section`
   display: flex;
   justify-content: space-between;
   position: relative;
+  flex-direction: column;
 `;
 
 const Texts = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 500px;
+
+  @media only screen and (max-width: 430px) {
+    text-align: center;
+    align-items: center;
+  }
 `;
 
 const Title = styled.h2`
@@ -24,6 +30,13 @@ const Title = styled.h2`
     font-size: 55px;
     line-height: 65px;
   }
+
+  @media only screen and (max-width: 430px) {
+    font-size: 40px;
+    line-height: 45px;
+    margin-top: 30px;
+    letter-spacing: -2px;
+  }
 `;
 
 const Paragraph = styled.p`
@@ -33,6 +46,12 @@ const Paragraph = styled.p`
   @media only screen and (max-width: 820px) {
     font-size: 16px;
     width: 400px;
+  }
+
+  @media only screen and (max-width: 430px) {
+    width: 250px;
+    margin-top: 10px;
+    line-height: 25px;
   }
 `;
 
@@ -48,37 +67,50 @@ const Button = styled.button`
   border: none;
   font-weight: bold;
 
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+
   @media only screen and (max-width: 820px) {
     height: 40px;
     width: 130px;
     font-size: 16px;
   }
 
-  &:hover {
-    cursor: pointer;
-    opacity: 0.5;
+  @media only screen and (max-width: 430px) {
+    width: 160px;
+    height: 46px;
+    margin-top: 30px;
   }
 `;
 
 const Ilustration = styled.img`
-  width: 530px;
-
-  position: relative;
+  width: 550px;
+  position: absolute;
+  right: -90px;
 
   @media only screen and (max-width: 1190px) {
     width: 450px;
-    position: absolute;
     right: -130px;
   }
 
   @media only screen and (max-width: 850px) {
     width: 400px;
   }
+
+  @media only screen and (max-width: 430px) {
+    position: relative;
+    width: 465px;
+    right: -20px;
+  }
 `;
 
 const Started: NextPage = () => {
   return (
     <Main>
+      <Ilustration src="/illustration-working.svg" alt="" />
+
       <Texts>
         <Title>More than just shorter links</Title>
         <Paragraph>
@@ -87,8 +119,6 @@ const Started: NextPage = () => {
         </Paragraph>
         <Button>Get Started</Button>
       </Texts>
-
-      <Ilustration src="/illustration-working.svg" alt="" />
     </Main>
   );
 };

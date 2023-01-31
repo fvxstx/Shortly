@@ -11,6 +11,10 @@ const GlobalStyle = createGlobalStyle`
         --very-dark-violet: hsl(260, 8%, 14%);
     }
 
+    *{
+        font-family: "Poppins", sans-serif;
+    }
+
     html,body {
         padding: 0;
         margin: 0;
@@ -34,10 +38,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     header,main,footer{
-        padding: 0 90px;
+        padding: 0 130px;
 
         @media only screen and (max-width: 850px) {
             padding: 0 50px;
+        }
+
+        @media only screen and (max-width: 430px) {
+            padding: 0 20px;
         }
     }
 

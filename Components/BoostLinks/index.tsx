@@ -14,12 +14,20 @@ const Box = styled.section`
   height: 180px;
   width: 100%;
   right: 0;
+
+  @media only screen and (max-width: 430px) {
+    height: 200px;
+  }
 `;
 
 const Title = styled.h3`
   font-size: 30px;
   color: #ffffff;
   margin: 0;
+
+  @media only screen and (max-width: 430px) {
+    font-size: 24px;
+  }
 `;
 
 const Button = styled.button`

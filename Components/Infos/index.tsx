@@ -17,12 +17,21 @@ const Title = styled.h3`
   color: var(--dark-blue);
   margin: 0;
   margin-top: 80px;
+
+  @media only screen and (max-width: 430px) {
+    font-size: 29px;
+  }
 `;
 
 const Subtitle = styled.p`
   width: 540px;
   color: var(--grey-violet);
   line-height: 30px;
+
+  @media only screen and (max-width: 430px) {
+    width: 300px;
+    font-size: 16px;
+  }
 `;
 
 const LinesInfos = styled.div`
@@ -31,6 +40,10 @@ const LinesInfos = styled.div`
   text-align: left;
 
   margin-top: 60px;
+
+  @media only screen and (max-width: 430px) {
+    flex-direction: column;
+  }
 `;
 
 const DifInfos = styled.article<{ margin?: string }>`
@@ -44,8 +57,18 @@ const DifInfos = styled.article<{ margin?: string }>`
   padding: 10px 20px;
   border-radius: 8px;
 
+  @media only screen and (max-width: 1025px) {
+    height: 320px;
+  }
+
   @media only screen and (max-width: 820px) {
-    height: 340px;
+    width: 200px;
+  }
+
+  @media only screen and (max-width: 430px) {
+    height: 250px;
+    margin-bottom: 0px;
+    width: auto;
   }
 `;
 
@@ -55,6 +78,15 @@ const SepareteBlue = styled.hr`
 
   width: 30px;
   height: 8px;
+
+  @media only screen and (max-width: 820px) {
+    margin: 0;
+    width: 8px;
+  }
+
+  @media only screen and (max-width: 430px) {
+    height: 100px;
+  }
 `;
 
 const BoxImages = styled.div`
@@ -71,6 +103,10 @@ const BoxImages = styled.div`
   justify-content: center;
   text-align: center;
   background-color: var(--dark-violet);
+
+  @media only screen and (max-width: 430px) {
+    left: 85px;
+  }
 `;
 
 const TitleInfos = styled.h4`
@@ -81,6 +117,10 @@ const TitleInfos = styled.h4`
   bottom: 20px;
   font-size: 21px;
   margin: 0;
+
+  @media only screen and (max-width: 430px) {
+    text-align: center;
+  }
 `;
 
 const PInfos = styled.p`
@@ -88,6 +128,11 @@ const PInfos = styled.p`
 
   @media only screen and (max-width: 820px) {
     font-size: 14px;
+  }
+
+  @media only screen and (max-width: 430px) {
+    text-align: center;
+    width: 250px;
   }
 `;
 
