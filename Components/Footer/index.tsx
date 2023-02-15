@@ -22,8 +22,6 @@ const TitleBox = styled.h4`
 
 const BoxLinks = styled.ul`
   display: flex;
-  list-style: none;
-  padding: 0;
   margin: 0;
   margin-bottom: 50px;
   gap: 20px;
@@ -59,11 +57,8 @@ const ALink = styled.a`
 
 const SocialMediaList = styled.ul`
   display: flex;
-  list-style-type: none;
   text-align: center;
-
   margin: 0;
-  padding: 0;
   gap: 20px;
   q & #kid {
     margin-top: 3px;

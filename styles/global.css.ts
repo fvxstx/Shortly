@@ -24,8 +24,6 @@ const GlobalStyle = createGlobalStyle`
         font-family: "Poppins", sans-serif;
         -ms-overflow-style: none;  
         scrollbar-width: none;
-
-        
     }
 
     body::-webkit-scrollbar {
@@ -35,6 +33,11 @@ const GlobalStyle = createGlobalStyle`
     a {
         color: inherit;
         text-decoration: none;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
     }
 
     header,main,footer{

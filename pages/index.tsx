@@ -6,6 +6,7 @@ import UrlGenerator from "../Components/UrlGenerator/index";
 import Infos from "../Components/Infos/index";
 import BoostLinks from "../Components/BoostLinks/index";
 import Footer from "../Components/Footer/index";
+import Modal from "../Components/Modal";
 
 const Home: NextPage = () => {
   return (

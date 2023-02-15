@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { NextPage } from "next";
+import Modal from "../Modal";
 
 const HeaderDiv = styled.header`
   display: flex;
@@ -45,21 +46,6 @@ const PagsLi = styled.li`
   &:hover {
     color: var(--very-dark-violet);
   }
-`;
-
-const Hamburger = styled.button`
-  display: none;
-
-  @media only screen and (max-width: 430px) {
-    display: flex;
-    background-color: #ffffff;
-    border: none;
-  }
-`;
-
-const HamburIcon = styled.img`
-  width: 30px;
-  height: 30px;
 `;
 
 const Buttons = styled.div`
@@ -114,9 +100,7 @@ const Pag: NextPage = () => {
             </PagsLi>
           </Pags>
         </NavPag>
-        <Hamburger>
-          <HamburIcon src="icon-menu.svg" alt="" />
-        </Hamburger>
+        <Modal />
       </Head1>
 
       <Buttons>
