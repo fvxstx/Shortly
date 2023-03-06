@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { NextPage } from "next";
-import Modal from "../Modal";
+import Modal from "../SubComponents/Modal";
 
 const HeaderDiv = styled.header`
   display: flex;

@@ -11,7 +11,7 @@ const BoxSection = styled.section`
   margin-top: 120px;
 `;
 
-const BoxInput = styled.div`
+const BoxForm = styled.form`
   display: flex;
   background: var(--dark-violet);
   background-image: url("/bg-shorten-desktop.svg");
@@ -112,55 +112,93 @@ const CopyButton = styled(ButtonUrl)`
   }
 `;
 
+interface GeralLinks {
+  linkURLType: string;
+  resultURLType: string;
+}
+
 const UrlGenerator: NextPage = () => {
-  const [copy, setCopy] = useState("Copy");
+  const [liArray, setLiArray] = useState<GeralLinks[]>([
+    {
+      linkURLType: "https://github.com/fvxstx",
+      resultURLType: "https://shrtco.de/VcsIzv",
+    },
+  ]);
+
+  async function ShrtCodeAPI(url: string): Promise<string> {
+    const res = await fetch(`https://api.shrtco.de/v2/shorten?url=${url}`);
+    const results = await res.json();
+    return results.result.full_short_link;
+  }
+
+  ShrtCodeAPI("https://github.com/fvxstx");
+
+  function BoxFormComp(): JSX.Element {
+    const [linkURL, setLinkURl] = useState("");
+
+    return (
+      <BoxForm>
+        <TextInput
+          name="linkAPI"
+          type="text"
+          placeholder="Shorten a link here..."
+          value={linkURL}
+          onChange={(e) => {
+            setLinkURl(e.target.value);
+          }}
+        />
+        <ButtonUrl
+          onClick={async (e) => {
+            e.preventDefault();
+            const resultLin = await ShrtCodeAPI(linkURL);
+            setLinkURl("");
+            setLiArray((arr) => [
+              {
+                linkURLType: linkURL,
+                resultURLType: resultLin,
+              },
+              ...arr,
+            ]);
+          }}
+        >
+          Shorten It!
+        </ButtonUrl>
+      </BoxForm>
+    );
+  }
+
+  function ResultForm({ linkURLType, resultURLType }: GeralLinks): JSX.Element {
+    const [copy, setCopy] = useState("Copy");
+    return (
+      <SiteItem>
+        <p>
+          <a href={`${linkURLType}`}>{linkURLType}</a>
+        </p>
+        <SiteAndCopy>
+          <a href={`${resultURLType}`}>{resultURLType}</a>
+          <CopyButton
+            onClick={(): void => {
+              setCopy("Copied!");
+            }}
+          >
+            {copy}
+          </CopyButton>
+        </SiteAndCopy>
+      </SiteItem>
+    );
+  }
 
   return (
     <BoxSection>
-      <BoxInput>
-        <TextInput type="text" placeholder="Shorten a link here..." />
-        <ButtonUrl>Shorten It!</ButtonUrl>
-      </BoxInput>
+      <BoxFormComp />
       <SiteList>
-        <SiteItem>
-          <p>wwww.aleatoriosite.com.br</p>
-          <SiteAndCopy>
-            <a href="">urlaletoriaparaosite.com</a>
-            <CopyButton
-              onClick={(): void => {
-                setCopy("Copied!");
-              }}
-            >
-              {copy}
-            </CopyButton>
-          </SiteAndCopy>
-        </SiteItem>
-        <SiteItem>
-          <p>wwww.aleatoriosite.com.br</p>
-          <SiteAndCopy>
-            <a href="">urlaletoriaparaosite.com</a>
-            <CopyButton
-              onClick={(): void => {
-                setCopy("Copied!");
-              }}
-            >
-              {copy}
-            </CopyButton>
-          </SiteAndCopy>
-        </SiteItem>
-        <SiteItem>
-          <p>wwww.aleatoriosite.com.br</p>
-          <SiteAndCopy>
-            <a href="">urlaletoriaparaosite.com</a>
-            <CopyButton
-              onClick={(): void => {
-                setCopy("Copied!");
-              }}
-            >
-              {copy}
-            </CopyButton>
-          </SiteAndCopy>
-        </SiteItem>
+        {liArray.slice(0, 3).map((element, index) => (
+          <ResultForm
+            key={index}
+            linkURLType={element.linkURLType}
+            resultURLType={element.resultURLType}
+          />
+        ))}
       </SiteList>
     </BoxSection>
   );
