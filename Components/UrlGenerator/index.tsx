@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { NextPage } from "next";
 import styled from "styled-components";
+import { useLocalStorage } from "../../src/useLocalStorage";
 
 const BoxSection = styled.section`
   width: 100%;
@@ -76,6 +77,11 @@ const SiteItem = styled.li`
   border-radius: 4px;
   padding: 0 18px;
 
+  & > p {
+    text-align: left;
+    font-size: 16px;
+  }
+
   @media only screen and (max-width: 430px) {
     flex-direction: column;
     align-items: flex-start;
@@ -118,7 +124,7 @@ interface GeralLinks {
 }
 
 const UrlGenerator: NextPage = () => {
-  const [liArray, setLiArray] = useState<GeralLinks[]>([
+  const [liArray, setLiArray] = useLocalStorage("test", [
     {
       linkURLType: "https://github.com/fvxstx",
       resultURLType: "https://shrtco.de/VcsIzv",
@@ -151,14 +157,16 @@ const UrlGenerator: NextPage = () => {
           onClick={async (e) => {
             e.preventDefault();
             const resultLin = await ShrtCodeAPI(linkURL);
+            (setLiArray as Dispatch<SetStateAction<GeralLinks[]>>)(
+              (arr: GeralLinks[]) => [
+                {
+                  linkURLType: linkURL,
+                  resultURLType: resultLin,
+                },
+                ...arr,
+              ]
+            );
             setLinkURl("");
-            setLiArray((arr) => [
-              {
-                linkURLType: linkURL,
-                resultURLType: resultLin,
-              },
-              ...arr,
-            ]);
           }}
         >
           Shorten It!
@@ -188,17 +196,23 @@ const UrlGenerator: NextPage = () => {
     );
   }
 
+  useEffect(() => {
+    localStorage.setItem("arrayLinks", JSON.stringify(liArray));
+  }, [liArray]);
+
   return (
     <BoxSection>
       <BoxFormComp />
       <SiteList>
-        {liArray.slice(0, 3).map((element, index) => (
-          <ResultForm
-            key={index}
-            linkURLType={element.linkURLType}
-            resultURLType={element.resultURLType}
-          />
-        ))}
+        {(liArray as GeralLinks[])
+          .slice(0, 3)
+          .map((element: GeralLinks, index: number) => (
+            <ResultForm
+              key={index}
+              linkURLType={element.linkURLType}
+              resultURLType={element.resultURLType}
+            />
+          ))}
       </SiteList>
     </BoxSection>
   );
