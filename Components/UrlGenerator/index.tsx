@@ -137,8 +137,6 @@ const UrlGenerator: NextPage = () => {
     return results.result.full_short_link;
   }
 
-  ShrtCodeAPI("https://github.com/fvxstx");
-
   function BoxFormComp(): JSX.Element {
     const [linkURL, setLinkURl] = useState("");
 
@@ -186,6 +184,7 @@ const UrlGenerator: NextPage = () => {
           <a href={`${resultURLType}`}>{resultURLType}</a>
           <CopyButton
             onClick={(): void => {
+              navigator.clipboard.writeText(resultURLType);
               setCopy("Copied!");
             }}
           >
