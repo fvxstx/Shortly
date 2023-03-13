@@ -18,7 +18,7 @@
 <br>
 
 <p align="center">
-  <img alt="Shortly Mockup" src=".github/Rocket_Q.png" width="100%">
+  <img alt="Shortly Mockup" src=".github/moockup.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
