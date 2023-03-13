@@ -3,6 +3,7 @@
 </h1>
 
 <p align="center">
+  <a href="#-acesso">Acesso</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-licença">Licença</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -18,8 +19,12 @@
 <br>
 
 <p align="center">
-  <img alt="Shortly Mockup" src=".github/moockup.png" width="100%">
+  <img alt="Shortly Mockup" src=".github/mockup.png" width="100%">
 </p>
+
+## 😁 Acesso
+
+Acesse e veja você mesmo: https://shortly-ashy.vercel.app/
 
 ## 🚀 Tecnologias
 
