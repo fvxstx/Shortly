@@ -154,17 +154,19 @@ const UrlGenerator: NextPage = () => {
         <ButtonUrl
           onClick={async (e) => {
             e.preventDefault();
-            const resultLin = await ShrtCodeAPI(linkURL);
-            (setLiArray as Dispatch<SetStateAction<GeralLinks[]>>)(
-              (arr: GeralLinks[]) => [
-                {
-                  linkURLType: linkURL,
-                  resultURLType: resultLin,
-                },
-                ...arr,
-              ]
-            );
-            setLinkURl("");
+            try {
+              const resultLin = await ShrtCodeAPI(linkURL);
+              (setLiArray as Dispatch<SetStateAction<GeralLinks[]>>)(
+                (arr: GeralLinks[]) => [
+                  {
+                    linkURLType: linkURL,
+                    resultURLType: resultLin,
+                  },
+                  ...arr,
+                ]
+              );
+              setLinkURl("");
+            } catch (e) {}
           }}
         >
           Shorten It!
